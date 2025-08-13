@@ -37,7 +37,6 @@
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
-  animation: fadeInScale 0.5s ease-out forwards;
   z-index: 1;
 }
 
@@ -87,25 +86,10 @@
 
 .services-carousel {
   display: flex;
-  width: calc(350px * var(--card-count));
   gap: 2rem;
-  animation: scrollHorizontal 30s linear infinite;
-  --card-count: 20;
   min-height: 450px;
   padding: 1rem 0;
-}
-
-.services-carousel:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scrollHorizontal {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-350px * var(--card-count) / 2));
-  }
+  will-change: transform;
 }
 
 .service-card {
@@ -121,11 +105,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(191, 134, 65, 0.15);
   border-color: rgba(191, 134, 65, 0.3);
 }
@@ -169,10 +152,24 @@
   filter: brightness(1.05);
 }
 
-.service-content {
+.service-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(191, 134, 65, 0.9);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-content {
+  padding: 1.5rem;
 }
 
 .service-title {
@@ -180,51 +177,51 @@
   font-weight: 700;
   color: #2c3e50;
   margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
-.service-card:hover .service-title {
-  color: #bf8641;
-}
-
-.service-icon {
-  font-size: 1.75rem;
-  color: #bf8641;
+.service-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #bf8641;
 }
 
 .service-description {
   font-size: 1rem;
   line-height: 1.7;
   color: #5d6d7e;
-  flex-grow: 1;
   margin-bottom: 1.5rem;
 }
 
-.service-link {
-  display: inline-flex;
+.services-subtitle {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.service-list {
+  margin-top: 1rem;
+}
+
+.service-item {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #5d6d7e;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.service-bullet {
   color: #bf8641;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  margin-top: auto;
-}
-
-.service-link:hover {
-  color: #a87338;
-  gap: 0.75rem;
-}
-
-.service-link-icon {
-  transition: transform 0.3s ease;
-}
-
-.service-link:hover .service-link-icon {
-  transform: translateX(3px);
+  font-size: 1.2rem;
 }
 
 .no-services {
@@ -234,24 +231,10 @@
   padding: 2rem;
 }
 
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
+/* Responsive Design */
 @media (max-width: 1024px) {
   .services-container {
     max-width: 95%;
-  }
-
-  .services-carousel {
-    width: calc(320px * var(--card-count));
   }
 
   .service-card {
@@ -277,16 +260,10 @@
   .services-section {
     padding: 4rem 1rem;
   }
-
+  
   .section-title1 {
     font-size: 2.2rem;
     margin-bottom: 2.5rem;
-  }
-
-  .services-carousel {
-    width: calc(300px * var(--card-count));
-    animation: scrollHorizontal 25s linear infinite;
-    min-height: 400px;
   }
 
   .service-card {
@@ -323,7 +300,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    animation: none;
     gap: 1.5rem;
   }
 
@@ -342,13 +318,14 @@
   }
 }
 
-/* Pause animation when reduced motion is preferred */
+/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .services-carousel {
-    animation: none;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
+    transform: none !important;
+    animation: none !important;
   }
   
   .service-card {

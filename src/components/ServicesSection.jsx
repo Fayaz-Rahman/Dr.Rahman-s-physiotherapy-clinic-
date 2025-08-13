@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './ServicesSection.css';
 
@@ -42,62 +42,60 @@ export const serviceCategories = [
   }
 ];
 
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { 
-      staggerChildren: 0.1,
-      when: "beforeChildren"
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.5 }
-  },
-  hover: {
-    y: -10,
-    transition: { duration: 0.3 }
-  }
-};
-
 const ServicesSection = () => {
   const carouselRef = useRef(null);
-  const duplicatedCategories = [...serviceCategories, ...serviceCategories, ...serviceCategories];
+  const requestRef = useRef();
+  const animationSpeed = 0.5; // Adjust speed (lower = slower)
+  let position = 0;
+  let lastTimestamp = 0;
+
+  const animate = (timestamp) => {
+    if (!lastTimestamp) lastTimestamp = timestamp;
+    const delta = timestamp - lastTimestamp;
+    lastTimestamp = timestamp;
+
+    if (carouselRef.current) {
+      position -= animationSpeed * (delta / 16); // Normalize speed
+      const totalWidth = carouselRef.current.scrollWidth / 2;
+      
+      if (position <= -totalWidth) {
+        position = 0;
+      }
+      
+      carouselRef.current.style.transform = `translateX(${position}px)`;
+    }
+    requestRef.current = requestAnimationFrame(animate);
+  };
+
+  useEffect(() => {
+    requestRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(requestRef.current);
+  }, []);
 
   return (
     <section id="services" className="services-section">
       <motion.h2
-        className="section-title"
+        className="section-title1"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Our Specialized Services
-        <span className="title-decoration"></span>
       </motion.h2>
 
       <div className="services-container">
-        <motion.div
-          className="services-carousel"
+        <div 
+          className="services-carousel" 
           ref={carouselRef}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
         >
-          {duplicatedCategories.map((category, index) => (
+          {[...serviceCategories, ...serviceCategories].map((category, index) => (
             <motion.div
               key={`${category.category}-${index}`}
               className="service-card"
-              variants={cardVariants}
-              whileHover="hover"
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
             >
               <div className="service-image-container">
                 <img
@@ -132,7 +130,7 @@ const ServicesSection = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
