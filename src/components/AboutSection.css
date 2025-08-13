@@ -1,0 +1,283 @@
+/* About Section Container */
+.about-section {
+  background-color: #f8fafc;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Elements */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(52, 152, 219, 0.05);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Main Container */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Doctor Photo Styles */
+.doctor-about-photo {
+  width: 450px;
+  height: 550px;
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  border-radius: 15px;
+  box-shadow: 0 25px 50px rgba(41, 128, 185, 0.2);
+  position: relative;
+  overflow: hidden;
+  transform: translateX(-50px);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+.doctor-about-photo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('doctor-image.jpg') center/cover;
+  mix-blend-mode: luminosity;
+  opacity: 0.7;
+}
+
+.doctor-about-photo.animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Experience Badge */
+.experience-badge {
+  position: absolute;
+  top: 30px;
+  left: -20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 2;
+  transform: rotate(-5deg);
+}
+
+.experience-badge span {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3498db;
+  line-height: 1;
+}
+
+.experience-badge small {
+  font-size: 0.9rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Specialty Badge */
+.specialty-badge {
+  position: absolute;
+  bottom: 30px;
+  right: -20px;
+  background: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+  z-index: 2;
+  transform: rotate(3deg);
+}
+
+/* Text Content */
+.about-text-content {
+  flex: 1;
+  transform: translateX(50px);
+  opacity: 0;
+  transition: all 0.8s ease 0.2s;
+}
+
+.about-text-content.animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.section-title {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  position: relative;
+  line-height: 1.3;
+}
+
+.title-decoration {
+  color: #3498db;
+  position: relative;
+}
+
+.title-decoration::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(52, 152, 219, 0.2);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.about-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #5d6d7e;
+  margin-bottom: 1.8rem;
+}
+
+/* Qualifications */
+.qualifications {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.qualification-item {
+  display: flex;
+  gap: 1rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.qualification-item:hover {
+  transform: translateY(-5px);
+}
+
+.qualification-icon {
+  font-size: 1.8rem;
+  color: #3498db;
+}
+
+.qualification-item h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.qualification-item p {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0.2rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .doctor-about-photo {
+    width: 400px;
+    height: 500px;
+    margin: 0 auto;
+    transform: translateY(50px);
+  }
+  
+  .doctor-about-photo.animate {
+    transform: translateY(0);
+  }
+  
+  .about-text-content {
+    text-align: center;
+    transform: translateY(50px);
+  }
+  
+  .about-text-content.animate {
+    transform: translateY(0);
+  }
+  
+  .title-decoration::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+  
+  .qualifications {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 2.5rem auto 0;
+  }
+  
+  .experience-badge {
+    left: 20px;
+  }
+  
+  .specialty-badge {
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .doctor-about-photo {
+    width: 320px;
+    height: 400px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .about-text {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctor-about-photo {
+    width: 280px;
+    height: 350px;
+  }
+  
+  .experience-badge {
+    top: 15px;
+    left: 10px;
+    padding: 10px;
+  }
+  
+  .experience-badge span {
+    font-size: 2rem;
+  }
+  
+  .specialty-badge {
+    bottom: 15px;
+    right: 10px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
