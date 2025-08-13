@@ -1,5 +1,4 @@
 import './HeroSection.css';
-import logo from '../assets/react.svg';
 import { useEffect } from 'react';
 
 const HeroSection = ({ navigateTo }) => {
@@ -14,6 +13,9 @@ const HeroSection = ({ navigateTo }) => {
 
   return (
     <section id="home" className="hero-section">
+      {/* Background image container */}
+      <div className="hero-bg-image"></div>
+      
       {/* Animated background elements */}
       <div className="hero-bg-elements">
         <div className="circle circle-1"></div>
@@ -22,17 +24,6 @@ const HeroSection = ({ navigateTo }) => {
       </div>
       
       <div className="hero-content">
-
-        <div className="doctor-image-container">
-          <div className="doctor-photo">
-            <img src={logo} alt="Doctor Rahman" />
-          </div>
-          {/* <div className="doctor-badge">
-            <span>15+ Years Experience</span>
-          </div> */}
-        </div>
-
-        
         <div className="hero-text">
           <h1 className="clinic-title">
             <span className="title-highlight">Restore</span> Your Mobility, 
@@ -76,8 +67,6 @@ const HeroSection = ({ navigateTo }) => {
             </div>
           </div>
         </div>
-        
-        
       </div>
       
       {/* Scrolling indicator */}

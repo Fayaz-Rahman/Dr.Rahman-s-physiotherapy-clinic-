@@ -4,6 +4,23 @@
   background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
   padding: 100px 2rem 150px;
   overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Background Image */
+.hero-bg-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url('https://lirp.cdn-website.com/83ac98e3/dms3rep/multi/opt/124550252_l-1920w.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 0;
 }
 
 /* Background Elements */
@@ -13,7 +30,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 1;
 }
 
 .circle {
@@ -45,74 +62,16 @@
 
 /* Hero Content Layout */
 .hero-content {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 3rem;
   position: relative;
-  z-index: 1;
-}
-
-/* Doctor Image Styles */
-.doctor-image-container {
-  position: relative;
-  width: 450px;
-  height: 550px;
-  flex-shrink: 0;
-}
-
-.doctor-photo {
+  z-index: 2;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #bf8641, #2c3e50);
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.doctor-photo img {
-  width: 80%;
-  height: auto;
-  object-fit: contain;
-}
-
-.doctor-photo::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to left, rgba(255,255,255,0.1), rgba(255,255,255,0));
-}
-
-.doctor-badge {
-  position: absolute;
-  bottom: -20px;
-  left: -20px;
-  background: #bf8641;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 10px;
-  font-weight: 600;
-  box-shadow: 0 10px 20px rgba(191, 134, 65, 0.3);
-  transform: rotate(5deg);
-  animation: pulse 2s infinite;
 }
 
 /* Hero Text Styles */
 .hero-text {
-  flex: 1;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .clinic-title {
@@ -234,6 +193,7 @@
   align-items: center;
   color: #7f8c8d;
   animation: bounce 2s infinite;
+  z-index: 3;
 }
 
 .mouse {
@@ -289,15 +249,10 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .doctor-image-container {
-    width: 350px;
-    height: 450px;
+  .hero-text {
+    max-width: 600px;
     margin: 0 auto;
+    text-align: center;
   }
   
   .clinic-title {
@@ -310,11 +265,6 @@
   
   .hero-features {
     justify-content: center;
-  }
-
-  .doctor-badge {
-    left: 50%;
-    transform: translateX(-50%) rotate(5deg);
   }
 }
 
@@ -333,16 +283,21 @@
   
   .hero-cta-container {
     flex-direction: column;
-  }
-  
-  .doctor-image-container {
-    width: 280px;
-    height: 380px;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
   .clinic-title {
     font-size: 1.8rem;
+  }
+  
+  .hero-features {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-bg-image {
+    opacity: 0.1;
   }
 }
