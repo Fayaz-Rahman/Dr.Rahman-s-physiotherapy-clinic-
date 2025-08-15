@@ -53,63 +53,17 @@ const Contact = () => {
           {/* Map Section */}
           <div className="animate-slide-in-right">
             <div className="card-medical p-0 overflow-hidden h-[500px]">
-              {/* Embedded Map */}
-              <div className="w-full h-full bg-gradient-to-br from-medical-blue/20 to-medical-teal/20 flex items-center justify-center relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-medical-blue/10 to-medical-teal/10"></div>
-                <div className="text-center z-10">
-                  <MapPin className="h-16 w-16 text-accent mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Visit Our Clinic</h3>
-                  <p className="text-muted-foreground">Interactive map coming soon</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Info */}
-            <div className="mt-8 space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-medical-blue to-medical-teal rounded-full flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Address</h4>
-                  <p className="text-muted-foreground">123 Health Street<br />Medical District, MD 12345</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-medical-blue to-medical-teal rounded-full flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Phone</h4>
-                  <p className="text-muted-foreground">Main: (555) 123-4567<br />Emergency: (555) 123-4568</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-medical-blue to-medical-teal rounded-full flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Email</h4>
-                  <p className="text-muted-foreground">info@mediclinic.com<br />appointments@mediclinic.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-medical-blue to-medical-teal rounded-full flex items-center justify-center flex-shrink-0">
-                  <Clock className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Hours</h4>
-                  <div className="text-muted-foreground text-sm">
-                    <p>Mon-Fri: 8:00 AM - 6:00 PM</p>
-                    <p>Saturday: 9:00 AM - 2:00 PM</p>
-                    <p>Sunday: Closed</p>
-                    <p className="text-accent font-medium mt-2">24/7 Emergency Care</p>
-                  </div>
-                </div>
-              </div>
+              {/* Embedded Google Map */}
+              <iframe
+                title="Clinic Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.225805736885!2d80.27071807471674!3d13.082680087245298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265f2f2aeee9f%3A0xa8cf5c2c04e3b8f!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1692189840590!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
 

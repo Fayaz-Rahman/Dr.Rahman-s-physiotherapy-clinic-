@@ -38,7 +38,7 @@ const FAQ = () => {
 
   return (
     <section className="py-20 bg-secondary/30">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -49,15 +49,11 @@ const FAQ = () => {
           </p>
         </div>
 
-        {/* FAQ Accordion */}
-        <div className="animate-scale-in">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="card-medical border-none"
-              >
+        {/* FAQ Accordion in 2 Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-scale-in">
+          {faqs.map((faq, index) => (
+            <Accordion type="single" collapsible key={index}>
+              <AccordionItem value={`item-${index}`} className="card-medical border-none">
                 <AccordionTrigger className="text-left hover:no-underline px-6 py-4 text-lg font-semibold">
                   {faq.question}
                 </AccordionTrigger>
@@ -65,8 +61,8 @@ const FAQ = () => {
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
-            ))}
-          </Accordion>
+            </Accordion>
+          ))}
         </div>
 
         {/* Contact CTA */}

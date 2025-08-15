@@ -7,7 +7,6 @@ import pediatricCareImg from '@/assets/pediatric-care.jpg';
 
 const Services = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const infiniteScrollRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   const services = [
@@ -55,8 +54,6 @@ const Services = () => {
     }
   ];
 
-  // Duplicate services for infinite scroll
-  const infiniteServices = [...services, ...services, ...services];
 
   // Scroll intersection observer
   useEffect(() => {
@@ -102,27 +99,6 @@ const Services = () => {
             Comprehensive healthcare services designed to meet all your medical needs 
             with the highest standards of care and professionalism.
           </p>
-        </div>
-
-        {/* Infinite Scrolling Service Icons */}
-        <div className="mb-12 overflow-hidden">
-          <div 
-            ref={infiniteScrollRef}
-            className="flex gap-8 animate-infinite-scroll hover:pause"
-            style={{ width: 'calc(200% + 32px)' }}
-          >
-            {infiniteServices.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <div
-                  key={index}
-                  className="flex-none w-16 h-16 bg-gradient-to-r from-medical-blue to-medical-teal rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform"
-                >
-                  <IconComponent className="h-8 w-8" />
-                </div>
-              );
-            })}
-          </div>
         </div>
 
         {/* Horizontal Scroll Services */}
