@@ -12,9 +12,10 @@ const Services = () => {
   const services = [
     {
       icon: Stethoscope,
-      title: 'General Medicine',
+      title: 'Geriatric Physiotherapy',
       image: generalMedicineImg,
-      description: 'Comprehensive primary care for adults and families',
+description: `Care for seniors to enhance mobility, strength, and balance.
+Stay active and independent in daily life`,
       subtopics: ['Annual Check-ups', 'Chronic Disease Management', 'Preventive Care', 'Health Screenings']
     },
     {

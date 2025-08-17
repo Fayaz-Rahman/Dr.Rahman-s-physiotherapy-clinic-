@@ -36,8 +36,8 @@ const About = () => {
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
-              With over 15 years of experience in family medicine, Dr. Johnson is dedicated 
-              to providing comprehensive, compassionate care to patients of all ages. She 
+              With over years of experience in family medicine, Dr. Johnson is dedicated 
+              to providing comprehensive, compassionate care to patients of all ages. He 
               believes in building lasting relationships with her patients and their families.
             </p>
             
@@ -62,11 +62,11 @@ const About = () => {
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">5000+</div>
+                <div className="text-2xl font-bold text-accent">2500+</div>
                 <div className="text-sm text-muted-foreground">Patients Treated</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">98%</div>
+                <div className="text-2xl font-bold text-accent">99%</div>
                 <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
               </div>
             </div>

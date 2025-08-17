@@ -52,16 +52,15 @@ const Hero = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-              <span className="text-white animate-fade-in">Comprehensive</span>
+              <span className="text-white animate-fade-in">Recover.</span>
               <br />
-              <span className="text-gradient-accent animate-fade-in" style={{animationDelay: '0.2s'}}>Healthcare</span>
+              <span className="text-gradient-accent animate-fade-in" style={{animationDelay: '0.2s'}}>Restore.</span>
               <br />
-              <span className="text-white animate-fade-in" style={{animationDelay: '0.4s'}}>Solutions</span>
+              <span className="text-white animate-fade-in" style={{animationDelay: '0.4s'}}>Rebuild.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl animate-slide-in-up" style={{animationDelay: '0.6s'}}>
-              Experience exceptional medical care with our team of dedicated professionals. 
-              We provide personalized treatment plans tailored to your unique health needs.
+              At Dr.Rahman's Physio Clinic, we help you move freely, heal naturally, and live pain-free with expert physiotherapy tailored to your needs.
             </p>
             
             {/* CTAs */}
@@ -78,28 +77,22 @@ const Hero = () => {
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </button>
               
-              <a
-                href="tel:+1234567890"
-                className="btn-accent inline-flex items-center justify-center gap-2 group"
-              >
-                <Phone className="h-5 w-5 group-hover:animate-bounce-gentle" />
-                Call Now
-              </a>
+              
             </div>
             
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20 stagger-animation">
               <div className="text-center animate-zoom-in">
-                <div className="text-2xl md:text-3xl font-bold text-accent">15+</div>
-                <div className="text-white/70 text-sm">Years Experience</div>
+                <div className="text-2xl md:text-3xl font-bold text-accent">Flexible</div>
+                <div className="text-white/70 text-sm">Appointments</div>
               </div>
               <div className="text-center animate-zoom-in">
-                <div className="text-2xl md:text-3xl font-bold text-accent">5000+</div>
+                <div className="text-2xl md:text-3xl font-bold text-accent">2500+</div>
                 <div className="text-white/70 text-sm">Happy Patients</div>
               </div>
               <div className="text-center animate-zoom-in">
-                <div className="text-2xl md:text-3xl font-bold text-accent">24/7</div>
-                <div className="text-white/70 text-sm">Emergency Care</div>
+                <div className="text-2xl md:text-3xl font-bold text-accent">99%</div>
+                <div className="text-white/70 text-sm">Patient Satisfaction</div>
               </div>
             </div>
           </div>
